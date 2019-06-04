@@ -11,7 +11,7 @@ class User(models.Model):
 class Comment(models.Model):
     created_at = models.DateField()
     content = models.TextField()
-    vote_total = models.IntigerField()
+    vote_total = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comment')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment')
 
