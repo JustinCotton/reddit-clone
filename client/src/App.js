@@ -3,7 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends Component {
+
+  state = {
+    posts: []
+  }
+  render(){
   return (
     <Router>
       <div className="App">
@@ -11,6 +16,7 @@ function App() {
       </div>
     </Router>
   );
+  }
 }
 
 export default App;
