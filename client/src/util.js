@@ -15,7 +15,7 @@ import axios from 'axios'
 
 export function getPosts() {
     return axios.get('/posts')
-        .then(results => results.data);
+        .then(results => console.log(results.data));
 }
 
 // export function deleteFavoriteMovie(movie) {

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 
+import {getPosts} from './util'
+
 class App extends Component {
 
   state = {
@@ -13,6 +15,7 @@ class App extends Component {
     <Router>
       <div className="App">
         <h1>Hello World</h1>
+        <button onClick={getPosts}>get posts</button>
       </div>
     </Router>
   );
