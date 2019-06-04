@@ -8,6 +8,18 @@ class User(models.Model):
     def __str__(self):
         return self.username
     
+class Post(models.Model):
+    created_at = models.DateField()
+    title = models.CharField(max_length=100)
+    picture = models.CharField(max_length=100)
+    content = models.CharField(max_length=100)
+    site_url = models.TextField()
+    vote_total = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post')
+
+    def __str__(self):
+        return self.title
+
 class Comment(models.Model):
     created_at = models.DateField()
     content = models.TextField()
