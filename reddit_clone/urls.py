@@ -1,4 +1,4 @@
-from .views import CommentViewSet
+from .views import PostViewSet, CommentViewSet, UserViewSet
 from rest_framework import routers
 
 router = routers.SimpleRouter()
