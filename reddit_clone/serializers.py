@@ -14,12 +14,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     )
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password', 'posts','comments',)
+        fields = ('id', 'username', 'email', 'password', 'posts', 'comments')
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
-    users = serializers.HyperlinkedRelatedField(
+    user = serializers.HyperlinkedRelatedField(
         view_name='user-detail',
-        many=True,
+        many=False,
         read_only=True
     )
     class Meta:
@@ -30,8 +30,9 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
     post = serializers.PrimaryKeyRelatedField(
         queryset = Post.objects.all()
     )
-    user = serializers.PrimaryKeyRelatedField(
-        queryset = User.objects.all()
-    )
+    # user = serializers.PrimaryKeyRelatedField(
+    #     queryset = User.objects.all()
+    # )
     class Meta:
-        model = Commentfields = ('id', 'created_at', 'content', 'vote_total', 'user', 'post')
+        model = Comment
+        fields = ('id', 'created_at', 'content', 'vote_total', 'post',)
