@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import AllPosts from './components/AllPosts'
-
+import SinglePost from './components/SinglePost'
 import {getPosts} from './util'
 
 class App extends Component {
@@ -25,6 +25,9 @@ class App extends Component {
   const Posts = () => (<AllPosts
     posts = {this.state.posts}
     />)
+  const Post = () => (<SinglePost
+    
+    />)
 
   return (
     <Router>
@@ -32,7 +35,8 @@ class App extends Component {
         <h1>Hello World</h1>
         <div>
           <Switch>
-            <Route exact path="/" component={Posts}/>
+            <Route exact path="/" render={Posts}/>
+            <Route exact path="/post/:id" render={Post}/>
           </Switch> 
         </div>
       </div>
