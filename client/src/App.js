@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import AllPosts from './components/AllPosts'
 import SinglePost from './components/SinglePost'
-import {getPosts} from './util'
+import {getPosts,} from './util'
 
 class App extends Component {
 
@@ -25,8 +25,9 @@ class App extends Component {
   const Posts = () => (<AllPosts
     posts = {this.state.posts}
     />)
-  const Post = () => (<SinglePost
-    
+  const Post = (props) => (<SinglePost
+    getpost={this.getPostById}
+    post={props}
     />)
 
   return (
