@@ -18,6 +18,11 @@ export function getPosts() {
         .then(results => results.data);
 }
 
+export function getPostById(id) {
+    return axios.get(`/posts/${id}`)
+        .then(post => post.data)
+}
+
 // export function deleteFavoriteMovie(movie) {
 //     return axios.delete(`/favorites/${movie._id}`)
 // }
